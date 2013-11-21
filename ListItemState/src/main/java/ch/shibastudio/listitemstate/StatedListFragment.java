@@ -8,9 +8,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
-import android.widget.Toast;
-import android.widget.ViewFlipper;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -108,20 +105,20 @@ public class StatedListFragment extends ListFragment implements Observer{
     }
 
     public void flipItems() {
-        // Get all the visible items and flip them
         if(null != mAdapter){
             int first = getListView().getFirstVisiblePosition();
             int last = getListView().getLastVisiblePosition();
 
-            int time = 100;
+            int time = 800;
+            int step = time / (1+last-first); // We use one more step for security reasons
             if(first < last){
-                for(int i=first; i<=last; i++){
+                for(int i=last; i>=first; i--){
                     View v =  getListView().getChildAt(i-first);
                     ObserverFlipper vf = (ObserverFlipper)v.findViewById(R.id.flipper);
                     Timer flipTimer = new Timer("Flip Timer");
                     flipTimer.schedule(new FlipTimerTask(vf), time);
 
-                    time += 100;
+                    time -= step;
                 }
             }
         }
