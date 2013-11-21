@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="1dp"
+    android:layout_marginBottom="1dp"
+    android:padding="2dp">
+
+    <ch.shibastudio.listitemstate.ObserverFlipper android:id="@+id/flipper"
+        android:layout_height="40dp"
+        android:layout_width="match_parent">
+
+        <RelativeLayout android:id="@+id/row_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_statedlist"
+            android:clickable="true">
+
+            <TextView android:id="@+id/label"
+                android:layout_height="40dp"
+                android:layout_width="match_parent"
+                android:layout_alignParentTop="true"
+                android:textSize="20sp"
+                android:paddingLeft="5dp"
+                android:gravity="center_vertical"
+                android:layout_toLeftOf="@+id/checkbox"
+                android:background="@android:color/transparent"/>
+
+            <CheckBox android:id="@+id/checkbox"
+                android:layout_height="40dp"
+                android:layout_width="40dp"
+                android:layout_alignParentRight="true"
+                android:background="@android:color/transparent"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_height="40dp"
+            android:layout_width="match_parent">
+
+            <RatingBar android:id="@+id/ratingbar"
+                android:layout_height="40dp"
+                android:layout_width="match_parent" />
+
+        </RelativeLayout>
+
+    </ch.shibastudio.listitemstate.ObserverFlipper>
+
+</RelativeLayout>
